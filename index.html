@@ -61,20 +61,23 @@
 		allToDo.splice(del, 1);
 		displayToDo(allToDo);
 	}
+
 	function filteredLength(){
 		var itemLeftCount = allToDo.filter(value => value.toDoStatus === false).length;
 		var itemLeft = document.querySelector('.itemLeftstatus');
 		itemLeft.textContent = `${itemLeftCount} Item left`;
 	}
+
 	function	unSelected(){
 		var activeList = allToDo.filter(value => value.toDoStatus === false);
 		displayToDo(activeList);
 	}
+
 	function selected(){
 		var completedList = allToDo.filter(value => value.toDoStatus === true);
 		displayToDo(completedList);
-
 	}
+
 	function clearSelected(){
 		allToDo = allToDo.filter(value => value.toDoStatus === false);
 		displayToDo(allToDo);
@@ -161,15 +164,16 @@ completedStatus.addEventListener('click', () => {
 	selected()});
 //addEventListener for All status and adding and deleting the class 
 allStatus.addEventListener('click', () => {
-	allStatus.classList.add('border');
 	activeStatus.classList.remove('border');
 	completedStatus.classList.remove('border');
+	clearStatus.classList.remove('border');
+	allStatus.classList.add('border');
 	displayToDo(allToDo)});
 //addEventListener for Active status and adding and deleting the class 
 activeStatus.addEventListener('click', () => {
 	allStatus.classList.remove('border');
-	activeStatus.classList.remove('border');
 	completedStatus.classList.remove('border');
+	clearStatus.classList.remove('border');
 	activeStatus.classList.add('border');
 	unSelected()});
 //addEventListener for storing and displaying the data
